@@ -1,0 +1,32 @@
+{
+  "workflow": {
+    "name": "Syedco Custom Workflow",
+    "description": "Custom workflow configuration for Evolution API project",
+    "version": "1.0.0"
+  },
+  "build": {
+    "nodeVersion": "20.x",
+    "buildCommand": "npm run build",
+    "lintCommand": "npm run lint:check",
+    "testCommand": "npm test"
+  },
+  "deployment": {
+    "enabled": true,
+    "target": "production",
+    "dockerRegistry": "docker.io",
+    "imageName": "evolution-api-custom"
+  },
+  "database": {
+    "provider": "postgresql",
+    "generatePrismaClient": true,
+    "runMigrations": false
+  },
+  "notifications": {
+    "enabled": false,
+    "channels": ["slack", "email"]
+  },
+  "cache": {
+    "enabled": true,
+    "paths": ["~/.npm", "node_modules"]
+  }
+}
